@@ -1,0 +1,24 @@
+//Notes:
+
+// Axios is a JavaScript library used to make HTTP requests from the browser (or Node.js). (Browser Postman that is useful)
+// It simplifies the process of sending asynchronous HTTP requests to REST endpoints and performing CRUD operations 
+// (Create, Read, Update, Delete).
+
+// useEffect: This hook runs the code inside it when the component mounts (renders for the first time)
+
+An API (Application Programming Interface) is a set of rules and protocols that allows different software applications to communicate with each other.
+It defines the methods and data formats that applications can use to request and exchange information.
+Essentially, an API acts as an intermediary that enables the interaction between different software components, systems, or services.
+
+ShortHand:
+https://flowbite.com/tools/tailwind-cheat-sheet/
+
+Table:
+
+The <table> tag defines an HTML table.
+
+An HTML table consists of one <table> element and one or more <tr>, <th>, and <td> elements.
+
+The <tr> element defines a table row, the <th> element defines a table header, and the <td> element defines a table cell.
+
+An HTML table may also include <caption>, <colgroup>, <thead>, <tfoot>, and <tbody> elements.
