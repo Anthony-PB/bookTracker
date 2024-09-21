@@ -6,6 +6,10 @@ const bookSchema = mongoose.Schema(
             type: String,
             required: true,
         },
+        genre: {
+            type: String,
+            required: false,
+        },
         author: {
             type: String,
             required: true,
@@ -14,6 +18,10 @@ const bookSchema = mongoose.Schema(
             type: Number,
             required: true,
         },
+        description: {
+            type: String,
+            required: false,
+        }
     },
     {
         timestamps: true,

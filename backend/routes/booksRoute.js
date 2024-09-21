@@ -17,6 +17,12 @@ router.post('/', async (request, response) => {
             title: request.body.title,
             author: request.body.author,
             publishYear: request.body.publishYear,
+            /*
+            Using the spread operator to conditionally add properties to the newBook object.
+            If request.body.genre or request.body.description exist, they will be included.
+            */
+            ...(request.body.genre && { genre: request.body.genre }),
+            ...(request.body.description && { description: request.body.description })
         };
         const book = await Book.create(newBook);
         return response.status(201).send(book);
