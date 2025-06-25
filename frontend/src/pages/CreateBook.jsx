@@ -36,7 +36,7 @@ const CreateBook = () => {
       <BackButton />
       <h1 className='text-3xl my-4'>Create Book</h1>
       {loading ? <Spinner /> : ''}
-      <div className='flex flex-col border-2 border-sky-400 round-xl  w-[600px] p-4 mx-auto'>
+      <div className='flex flex-col bg-amber-50 border-l-amber-800 border-r-amber-50 border-8 rounded-sm border-amber-800 round-xl  w-[600px] p-4 mx-auto'>
         <div className='my-4'>
           <label className='text-xl mr-4 text-gray-500'>Title</label>
           <input
@@ -64,9 +64,15 @@ const CreateBook = () => {
           className='border-2 border-gray-500 px-4 py-2 w-full'
           />
         </div>
-          <button className='p-2 bg-sky-300 m-8' onClick={handleSaveBook}>
-            Save
-          </button>
+      <button
+        className='p-3 px-6 rounded-md bg-white border-l-4 border-amber-800 
+                  shadow-md hover:shadow-xl transition-shadow duration-200 
+                  text-amber-900 font-sans relative'
+        onClick={handleSaveBook}
+      >
+        📖 Save Book
+      </button>
+
       </div>
     </div>
   )
