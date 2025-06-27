@@ -14,18 +14,20 @@ function Home() {
   const [showType, SetShowType] = useState("table");
 
   useEffect(() => {
-    setLoading(true);
-    axios
-      .get("http://localhost:5555/books")
-      .then((response) => {
-        // When books is set, we have access to the data of the books in the state
+    const fetchBooks = async () => {
+      setLoading(true);
+      await sleep(1750); // wait 1.750 seconds to simulate loading
+      try {
+        const response = await axios.get("http://localhost:5555/books");
         setBooks(response.data.data);
+      } catch (error) {
+        console.error(error);
+      } finally {
         setLoading(false);
-      })
-      .catch((error) => {
-        console.log(error);
-        setLoading(false);
-      });
+      }
+    };
+
+    fetchBooks();
   }, []);
   return (
     <div className="p-4">
@@ -58,6 +60,10 @@ function Home() {
       )}
     </div>
   );
+}
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 export default Home;

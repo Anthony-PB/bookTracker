@@ -1,9 +1,25 @@
 import React from 'react';
 
 function Spinner() {
+  const delays = ['0s', '0.1s', '0.2s'];
+
   return (
     <div className="flex justify-center items-start min-h-screen">
-      <div className="animate-ping w-16 h-16 rounded-full bg-gradient-to-r from-sky-500 to-indigo-500 shadow-lg mt-16"></div>
+      <div className="flex space-x-3 mt-20">
+        {delays.map((delay, i) => (
+          <div
+            key={i}
+            className="relative w-4 h-4 animate-bounce"
+            style={{ animationDelay: delay }}
+          >
+            {/* Glowing Purple Backdrop */}
+            <div className="absolute -top-0.5 -left-0.5 w-6 h-6 bg-amber-900 rounded-full z-0 blur-sm opacity-100"></div>
+
+            {/* Sky Blue Dot */}
+            <div className="w-5 h-5 bg-white rounded-full z-10 relative"></div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

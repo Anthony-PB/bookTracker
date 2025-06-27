@@ -13,10 +13,26 @@ const CreateBook = () => {
   const navigate = useNavigate();
   const {enqueueSnackbar} = useSnackbar();
   const handleSaveBook = () => {
+    const trimmedTitle = title.trim();
+    const trimmedAuthor = author.trim();
+    if (!title || !trimmedTitle) {
+      alert("Title is required!");
+      return;
+    }else if (!author || !trimmedAuthor) {
+      alert("Author is required!");
+      return;
+    }
+    const trimmedYear = publishYear.trim();
+    const yearAsNumber = parseInt(trimmedYear);
+
+    if (isNaN(yearAsNumber)) {
+      alert("Please enter a valid year");
+      return;
+    }
     const data = {
-      title,
-      author,
-      publishYear
+      title: trimmedTitle,
+      author: trimmedAuthor,
+      publishYear: yearAsNumber
     };
     setLoading(true);
     axios
@@ -38,30 +54,31 @@ const CreateBook = () => {
       {loading ? <Spinner /> : ''}
       <div className='flex flex-col bg-amber-50 border-l-amber-800 border-r-amber-50 border-8 rounded-sm border-amber-800 round-xl  w-[600px] p-4 mx-auto'>
         <div className='my-4'>
-          <label className='text-xl mr-4 text-gray-500'>Title</label>
+          <label className='text-xl mr-4 text-black'>Title</label>
           <input
           type = 'text'
           value = {title}
           onChange={(e) => setTitle(e.target.value)}
-          className='border-2 border-gray-500 px-4 py-2 w-full'
+          className='border-2 border-black px-4 py-2 w-full'
           />
         </div>
         <div className='my-4'>
-          <label className='text-xl mr-4 text-gray-500'>Author</label>
+          <label className='text-xl mr-4 text-black'>Author</label>
           <input
           type = 'text'
           value = {author}
           onChange={(e) => setAuthor(e.target.value)}
-          className='border-2 border-gray-500 px-4 py-2 w-full'
+          className='border-2 border-black px-4 py-2 w-full'
           />
         </div>
         <div className='my-4'>
-          <label className='text-xl mr-4 text-gray-500'>Publish Year</label>
+          <label className='text-xl mr-4 text-black'>Publish Year</label>
           <input
-          type = 'text'
+          type = 'number'
+          step = "1"
           value = {publishYear}
           onChange={(e) => setPublishYear(e.target.value)}
-          className='border-2 border-gray-500 px-4 py-2 w-full'
+          className='border-2 border-black px-4 py-2 w-full'
           />
         </div>
       <button
@@ -72,7 +89,6 @@ const CreateBook = () => {
       >
         📖 Save Book
       </button>
-
       </div>
     </div>
   )
