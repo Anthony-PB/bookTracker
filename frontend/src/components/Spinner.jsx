@@ -12,10 +12,8 @@ function Spinner() {
             className="relative w-4 h-4 animate-bounce"
             style={{ animationDelay: delay }}
           >
-            {/* Glowing Purple Backdrop */}
             <div className="absolute -top-0.5 -left-0.5 w-6 h-6 bg-amber-900 rounded-full z-0 blur-sm opacity-100"></div>
 
-            {/* Sky Blue Dot */}
             <div className="w-5 h-5 bg-white rounded-full z-10 relative"></div>
           </div>
         ))}
