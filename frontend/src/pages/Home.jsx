@@ -33,16 +33,21 @@ function Home() {
     <div className="p-4">
       <div className="flex justify-center items-center gap-x-4">
         <button
-          className="bg-sky--300 hover:bg-sky-600 px-4 py-1 rounded-lg"
+          className={`relative border-2 border-gray-800 px-6 py-3 font-semibold uppercase tracking-wide text-sm transition-all duration-300 hover:bg-gray-800 hover:text-white before:absolute before:left-4 before:top-1/2 before:h-0.5 before:w-4 before:-translate-y-1/2 before:bg-gray-800 before:transition-all before:duration-300 hover:before:bg-white ${
+            showType === 'table' ? 'bg-gray-800 text-white before:bg-white' : 'bg-transparent text-gray-800'
+          }`}
           onClick={() => SetShowType("table")}
         >
-          Table
+          <span className="pl-8">Table</span>
         </button>
+        
         <button
-          className="bg-sky--300 hover:bg-sky-600 px-4 py-1 rounded-lg"
+          className={`relative border-2 border-gray-800 px-6 py-3 font-semibold uppercase tracking-wide text-sm transition-all duration-300 hover:bg-gray-800 hover:text-white before:absolute before:left-4 before:top-1/2 before:h-0.5 before:w-4 before:-translate-y-1/2 before:bg-gray-800 before:transition-all before:duration-300 hover:before:bg-white ${
+            showType === 'card' ? 'bg-gray-800 text-white before:bg-white' : 'bg-transparent text-gray-800'
+          }`}
           onClick={() => SetShowType("card")}
         >
-          Card
+          <span className="pl-8">Card</span>
         </button>
       </div>
       <div className="flex justify-between items-center">

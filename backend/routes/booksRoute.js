@@ -25,6 +25,7 @@ router.post('/', async (request, response) => {
             ...(request.body.description && { description: request.body.description })
         };
         const book = await Book.create(newBook);
+
         return response.status(201).send(book);
     }
     catch(error){

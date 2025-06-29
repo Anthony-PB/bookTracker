@@ -7,9 +7,12 @@ const BackButton = ({destination = '/'}) => {
     <div className='flex'>
         <Link
         to = {destination}
-        className='bg-sky-800 text-white px-4 py-1 rounded-lg w-fit '
+        className= 'group relative border border-gray-300 bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-700 hover:to-gray-800 text-white px-5 py-2 rounded-lg w-fit transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-gray-500/25 hover:border-gray-400'
         >
-        <BsArrowLeft className='text 2xl'/>
+        <div className='relative overflow-hidden'>
+          <BsArrowLeft className='text-xl group-hover:-translate-x-8 transition-transform duration-300'/>
+          <BsArrowLeft className='text-xl absolute top-0 left-0 translate-x-8 group-hover:translate-x-0 transition-transform duration-300'/>
+        </div>
         </Link>
     </div>
   )
