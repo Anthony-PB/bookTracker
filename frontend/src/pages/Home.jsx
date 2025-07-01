@@ -7,6 +7,7 @@ import { BsInfoCircle } from "react-icons/bs";
 import { MdOutlineAddBox, MdOutlineDelete } from "react-icons/md";
 import BooksTable from "../components/home/BooksTable";
 import BooksCard from "../components/home/BooksCard";
+import "./anim.css";
 
 function Home() {
   const [books, setBooks] = useState([]);
@@ -53,7 +54,7 @@ function Home() {
       <div className="flex justify-between items-center">
         <h1 className="text-3xl my-8">Book List</h1>
         <Link to="/books/create">
-          <MdOutlineAddBox className="text-sky-800 text-4xl" />
+          <MdOutlineAddBox className="animated-button text-gray-800 text-5xl " />
         </Link>
       </div>
       {loading ? (
