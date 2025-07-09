@@ -15,7 +15,7 @@
 .emblem::before {
     content: '';
     position: absolute;
-    left: 1rem;
+    left: 0.85rem;
     top: 50%;
     transform: translateY(-50%);
     width: 1rem;
@@ -25,14 +25,12 @@
 }
 
 .emblem:hover {
-    border-color: #6b7280;
+    border-color: #ffffff;
     border-radius: 1.25rem;
-    transform: scale(1.05);
 }
 
 .emblem:hover::before {
     width: 0.75rem;
-    background: #d1d5db;
 }
 
 
