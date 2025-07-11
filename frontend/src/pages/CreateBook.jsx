@@ -56,6 +56,8 @@ const CreateBook = () => {
         <div className='my-4'>
           <label className='text-xl mr-4 text-black'>Title</label>
           <input
+          label= 'Title'
+          placeholder='Book Title'
           type = 'text'
           value = {title}
           onChange={(e) => setTitle(e.target.value)}
@@ -66,6 +68,8 @@ const CreateBook = () => {
         <div className='my-4'>
           <label className='text-xl mr-4 text-black'>Author</label>
           <input
+          label='Author'
+          placeholder='Author Name'
           type = 'text'
           value = {author}
           onChange={(e) => setAuthor(e.target.value)}
@@ -76,12 +80,14 @@ const CreateBook = () => {
         <div className='my-4'>
           <label className='text-xl mr-4 text-black'>Publish Year</label>
           <input
-          type = 'number'
+          label='Publish Year'
+          placeholder='YYYY'
+          type = 'text'
           step = "1"
           value = {publishYear}
           onChange={(e) => {
             const iYear = e.target.value;
-            if(iYear.length <= 4){
+            if (/^\d*$/.test(iYear) && iYear.length <= 4) {
               setPublishYear(iYear);
             }
           }}
