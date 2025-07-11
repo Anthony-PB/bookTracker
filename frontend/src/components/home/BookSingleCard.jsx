@@ -26,12 +26,12 @@ const BookSingleCard = (book) => {
           
           <div className="space-y-3 pr-20">
             <div className="flex items-center space-x-3 text-white">
-              <PiBookOpenTextLight className="text-2xl text-gray-300" />
+              <PiBookOpenTextLight className="text-2xl text-gray-300 min-w-10" />
               <h2 className="text-lg font-bold truncate">{book.title}</h2>
             </div>
             
             <div className="flex items-center space-x-3 text-white">
-              <BiUserCircle className="text-2xl text-gray-300" />
+              <BiUserCircle className="text-2xl text-gray-300 min-w-10" />
               <h3 className="text-gray-300 truncate">{book.author}</h3>
             </div>
           </div>

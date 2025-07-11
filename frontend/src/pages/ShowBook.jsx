@@ -57,8 +57,8 @@ const ShowBook = () => {
         ) : (
           <div className='bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden'>
             <div className='bg-gradient-to-r from-gray-800 to-gray-900 p-6'>
-              <h2 className='text-2xl font-bold text-white'>{book.title || 'Untitled'}</h2>
-              <p className='text-gray-300 mt-1'>by {book.author || 'Unknown Author'}</p>
+              <h2 className='text-2xl font-bold text-white truncate'>{book.title || 'Untitled'}</h2>
+              <p className='text-gray-300 mt-1 truncate'>by {book.author || 'Unknown Author'}</p>
             </div>
             
             <div className='p-8 space-y-6'>

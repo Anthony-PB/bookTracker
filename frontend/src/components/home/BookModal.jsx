@@ -22,13 +22,13 @@ const BookModal = ({ book, onClose }) => {
           </button>
           
           <div className="flex items-center space-x-3 mb-2">
-            <PiBookOpenTextLight className="text-white text-3xl" />
-            <h2 className="text-2xl font-bold text-white">{book.title}</h2>
+            <PiBookOpenTextLight className="text-white text-3xl min-w-10 min-h-10" />
+            <h2 className="text-2xl font-bold text-white truncate">{book.title}</h2>
           </div>
           
           <div className="flex items-center space-x-2">
-            <BiUserCircle className="text-gray-300 text-xl" />
-            <p className="text-gray-300">by {book.author}</p>
+            <BiUserCircle className="text-gray-300 text-xl min-w-10 min-h-6" />
+            <p className="text-gray-300 truncate">by {book.author}</p>
           </div>
         </div>
 

@@ -21,7 +21,14 @@ const bookSchema = mongoose.Schema(
         description: {
             type: String,
             required: false,
+        },
+        /*
+        TODO: Change all routes and change frontend to support this. (Will be taken as an input but cannot be changed by user conventionally)
+        userID: {
+            type: String,
+            required: true,
         }
+        */
     },
     {
         timestamps: true,

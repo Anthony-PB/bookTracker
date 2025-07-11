@@ -83,6 +83,7 @@ const EditBook = () => {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             className='border-2 border-black px-4 py-2 w-full'
+            maxLength={100}
           />
         </div>
         <div className='my-4'>
@@ -92,6 +93,7 @@ const EditBook = () => {
             value={author}
             onChange={(e) => setAuthor(e.target.value)}
             className='border-2 border-black px-4 py-2 w-full'
+            maxLength={65}
           />
         </div>
         <div className='my-4'>
@@ -100,7 +102,12 @@ const EditBook = () => {
             type='number'
             step="1"
             value={publishYear}
-            onChange={(e) => setPublishYear(e.target.value)}
+            onChange={(e) => {
+            const iYear = e.target.value;
+            if(iYear.length <= 4){
+              setPublishYear(iYear);
+            }
+          }}
             className='border-2 border-black px-4 py-2 w-full'
           />
         </div>
