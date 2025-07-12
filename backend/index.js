@@ -1,7 +1,8 @@
 import express, { request, response } from "express";
 import {PORT, mongoDBURL} from "./config.js";
 import mongoose from "mongoose";
-import booksRoute from "./routes/booksRoute.js"
+import booksRoute from "./routes/booksRoute.js";
+import userRoute from "./routes/userRoute.js";
 import cors from 'cors';
 
 const app = express();
@@ -22,10 +23,11 @@ app.use(cors());
 // Root route?
 app.get('/', (request,response) => {
     console.log({request});
-    return response.status(234).send('Welcome To MERN Stack Thing');
+    return response.status(234).send('Welcome To Your Book Tracker');
 });
 
 app.use('/books', booksRoute);
+app.use('/users', userRoute)
 
 // Connecting to database
 mongoose
