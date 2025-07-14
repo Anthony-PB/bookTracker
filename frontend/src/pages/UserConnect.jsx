@@ -41,6 +41,16 @@ const UserConnect = () => {
     navigate('/');
   }
 
+  const handleLogout = () => {
+    localStorage.removeItem('userId');
+    setUserID('');
+    setExistingUserID('');
+    setHasExistingUser(false);
+    setActiveTab('new');
+    enqueueSnackbar('You have been logged out.', { variant: 'info' });
+    navigate('/user');
+  }
+
   const handleConnectReturningUser = () => {
     if (!existingUserID.trim()) {
       enqueueSnackbar('Please enter your User ID.', { variant: 'warning' });
@@ -75,6 +85,13 @@ const UserConnect = () => {
   return (
     <div className="p-4">
       {hasExistingUser && <BackButton />}
+      {hasExistingUser && (
+        <button
+          className="absolute top-4 right-4 p-2 bg-red-500 hover:bg-red-600 text-white rounded"
+          onClick={handleLogout}
+        >
+          Logout
+        </button>)}
       <h1 className="text-3xl my-4">
         {hasExistingUser ? 'Switch User' : 'Welcome! Get Started'}
       </h1>

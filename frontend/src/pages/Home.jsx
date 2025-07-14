@@ -7,6 +7,7 @@ import { BsInfoCircle } from "react-icons/bs";
 import { MdOutlineAddBox, MdOutlineDelete } from "react-icons/md";
 import BooksTable from "../components/home/BooksTable";
 import BooksCard from "../components/home/BooksCard";
+import UserButton from "../components/userButton";
 import "./anim.css";
 
 function Home() {
@@ -32,6 +33,9 @@ function Home() {
   }, []);
   return (
     <div className="p-4">
+      <div className="flex justify-end mb-4">
+        <UserButton />
+      </div>
       <div className="flex justify-center items-center gap-x-4">
         <button
           className={`relative border-2 border-gray-800 px-6 py-3 font-semibold uppercase tracking-wide text-sm transition-all duration-300 hover:bg-gray-800 hover:text-white before:absolute before:left-4 before:top-1/2 before:h-0.5 before:w-4 before:-translate-y-1/2 before:bg-gray-800 before:transition-all before:duration-300 hover:before:bg-white ${
