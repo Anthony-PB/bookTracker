@@ -1,4 +1,34 @@
 import mongoose from "mongoose";
+import bcryptjs from "bcryptjs";
+
+const userSchema = mongoose.Schema(
+    {
+        username: {
+            type: String,
+            required: true,
+            unique: true,
+            trim: true,
+            minLength: 3,
+            maxLength: 20,
+        },
+        email: {
+            type: String,
+            required: true,
+            unique: true,
+            trim: true,
+            lowercase: true,
+        },
+        password: {
+            type: String,
+            required: true,
+            minLength: 6,
+        },
+
+    },
+    {
+        timestamps: true,
+    }
+)
 
 const bookSchema = mongoose.Schema(
     {
@@ -22,17 +52,41 @@ const bookSchema = mongoose.Schema(
             type: String,
             required: false,
         },
-        /*
-        TODO: Change all routes and change frontend to support this. (Will be taken as an input but cannot be changed by user conventionally)
-        userID: {
-            type: String,
+        
+        userId: {
+            type: mongoose.Schema.Types.ObjectId,
             required: true,
+            ref: 'User',
         }
-        */
     },
     {
         timestamps: true,
     }
 );
 
-export const Book = mongoose.model('books',bookSchema);
+// Before saving a user, hash the password
+// Why this is good to do?
+// It ensures that the password is stored securely in the database.
+// We don't need to have separate logic for hashing passwords in the routes.
+// Instead, we can use Mongoose middleware to handle this automatically.
+// Cases: Registration, password change, etc.
+userSchema.pre('save', async function(next){
+    if(!this.isModified('password')){
+        return next();
+    }
+    try{
+        const salt = await bcryptjs.genSalt(10);
+        this.password = await bcryptjs.hash(this.password, salt);
+        next();
+    } catch(error){
+        console.error(error);
+        next(error);
+    }
+})
+
+userSchema.methods.comparePassword = async function(candidatePassword) {
+    return await bcryptjs.compare(candidatePassword, this.password);
+}
+
+export const Book = mongoose.model('Book',bookSchema);
+export const User = mongoose.model('User', userSchema);
